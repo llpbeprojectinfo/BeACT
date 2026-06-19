@@ -791,7 +791,8 @@
     const btn  = form.querySelector('.btn-submit');
     const fd   = new FormData(form);
 
-    const payload = {
+    // URLエンコード形式で送信（no-corsと相性が良く、GASが確実に受け取れる）
+    const params = new URLSearchParams({
       name:  fd.get('name')  || '',
       kana:  fd.get('kana')  || '',
       tel:   fd.get('tel')   || '',
@@ -799,23 +800,18 @@
       area:  fd.get('area')  || '',
       age:   fd.get('age')   || '',
       msg:   fd.get('msg')   || ''
-    };
+    });
 
     btn.disabled = true;
     btn.textContent = '送信中…';
 
     try {
-      if (GAS_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-        // セットアップ未完了の場合はコンソールに出力してデモ完了
-        console.log('送信データ:', payload);
-      } else {
-        await fetch(GAS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      }
+      await fetch(GAS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: params
+      });
+
       form.style.display = 'none';
       const msg = document.getElementById('success-msg');
       msg.style.display = 'block';
@@ -824,7 +820,7 @@
       console.error(err);
       btn.disabled = false;
       btn.textContent = '申し込む';
-      alert('送信中にエラーが発生しました。お手数ですがメールにてご連絡ください。');
+      alert('送信中にエラーが発生しました。\nお手数ですが llp.be.project.info@gmail.com までメールでご連絡ください。');
     }
   }
 </script>
