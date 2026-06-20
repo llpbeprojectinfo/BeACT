@@ -337,8 +337,8 @@
     .fg textarea { resize: vertical; min-height: 90px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
-    .chk { display: flex !important; align-items: center; gap: 0; font-size: .93rem; cursor: pointer; }
-    .chk input { margin: 0; accent-color: var(--g); flex-shrink: 0; }
+    .chk { display: block; font-size: .93rem; cursor: pointer; line-height: 1.6; }
+    .chk input { display: block; margin: 0 0 4px 0; accent-color: var(--g); }
     .privacy-box {
       background: var(--gp); border-radius: var(--r);
       padding: 14px 16px; font-size: .82rem; line-height: 1.7; margin-bottom: 18px;
@@ -611,8 +611,8 @@
       <div class="ov-row">
         <div class="ov-lbl">対象</div>
         <div class="ov-val">
-          南九州市への想いがあれば誰でも参加OK！
-          <span class="sub">🧒👶 子供たちやお子様連れ、お一人での参加など大歓迎！想いがあれば誰でもOK</span>
+          高校生以上
+          <span class="sub">お子様連れやお一人での参加など大歓迎！（南九州市への想いがあれば誰でも参加OK！）</span>
           <span class="sub">応募者多数の場合は、南九州市在住・在勤・在学の方を優先する場合がございます。</span>
         </div>
       </div>
@@ -699,6 +699,13 @@
         <div class="fg">
           <label>応募の動機（自由記述）<span class="req">必須</span></label>
           <textarea name="msg" required placeholder="やってみたいこと、参加のきっかけなど、自由にお書きください。"></textarea>
+        </div>
+
+        <div class="fg">
+          <label class="chk">
+            <input type="checkbox" name="minor_consent">
+            （高校生の方）保護者の同意を得ている
+          </label>
         </div>
 
         <div class="privacy-box">
