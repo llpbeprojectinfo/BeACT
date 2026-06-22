@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beプロジェクトとは | 南九州市 地域イノベーション創出</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --g:    #92D050;
+      --gd:   #5A8A1A;
+      --gp:   #EDF7D5;
+      --dark: #1E1E1E;
+      --bg:   #F5F5F3;
+      --bg2:  #ECECEA;
+      --card: #FFFFFF;
+      --border: #D8D5CF;
+      --text:   #1E1E1E;
+      --sub:    #4A4A4A;
+      --muted:  #787878;
+      --f-disp: 'Darumadrop One', cursive;
+      --f-body: 'M PLUS Rounded 1c', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+      --sh: 0 4px 20px rgba(0,0,0,0.07);
+      --shm: 0 8px 32px rgba(0,0,0,0.11);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--f-body); color: var(--text); background: var(--bg); line-height: 1.8; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--gd); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+
+    /* ========== NAV ========== */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(30,30,30,0.95);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 5%; height: 52px;
+    }
+    .nav-logo { font-family: var(--f-disp); color: #fff; font-size: 1.1rem; letter-spacing: .06em; display: flex; align-items: center; gap: 6px; }
+    .nav-logo span { color: var(--g); }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.65); font-size: .82rem; font-weight: 700; }
+    .nav-links a:hover { color: #fff; text-decoration: none; }
+    .btn-nav {
+      background: var(--g) !important; color: var(--dark) !important;
+      padding: 5px 16px; border-radius: 50px;
+      font-weight: 800 !important; font-size: .82rem !important;
+    }
+    .btn-nav:hover { opacity: .85; text-decoration: none !important; }
+
+    /* ========== SECTION BASE ========== */
+    section { padding: 80px 5%; }
+    section:nth-child(odd) { background: var(--bg); }
+    section:nth-child(even) { background: var(--bg2); }
+
+    .tag {
+      display: inline-block;
+      background: var(--g); color: var(--dark);
+      font-size: .72rem; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .sec-title {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.3; margin-bottom: .5rem;
+    }
+    .sec-title .en { font-family: var(--f-disp); color: var(--g); font-size: .9em; }
+    .sec-lead {
+      font-size: 1rem; color: var(--sub);
+      max-width: 640px; margin-bottom: 3rem; line-height: 1.9;
+    }
+
+    /* ========== SLIDE 1: HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; padding: 0 !important;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('web_assets_extracted/image1.png');
+      background-size: cover; background-position: center;
+      filter: brightness(.82);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(30,30,30,.05) 0%, rgba(30,30,30,.5) 60%, rgba(30,30,30,.78) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 10vh 8% 9vh; color: #fff;
+    }
+    .hero-be {
+      font-family: var(--f-disp);
+      font-size: clamp(5rem, 14vw, 11rem);
+      line-height: .9; color: var(--g);
+      letter-spacing: -.02em;
+      text-shadow: 0 4px 40px rgba(0,0,0,.25);
+    }
+    .hero-title {
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      margin-top: .3em; letter-spacing: .06em;
+    }
+    .hero-catch {
+      margin-top: .9em;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 700; line-height: 1.7;
+      color: rgba(255,255,255,.9);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; right: 5%;
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.45); font-size: .7rem; letter-spacing: .2em;
+    }
+    .hero-scroll::after {
+      content: ''; width: 1px; height: 40px;
+      background: rgba(255,255,255,.25);
+      animation: sl 1.8s ease-in-out infinite;
+    }
+    @keyframes sl { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:.8;transform:scaleY(1.2)} }
+
+    /* ========== SLIDE 2: ABOUT ========== */
+    .about-wrap {
+      display: grid; grid-template-columns: 1fr 2fr;
+      border-radius: var(--rl); overflow: hidden; box-shadow: var(--shm);
+    }
+    .about-left {
+      background: var(--g);
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center; color: var(--dark);
+    }
+    .about-left .en { font-family: var(--f-disp); font-size: 3.5rem; line-height: 1; opacity: .5; }
+    .about-left .ja { font-weight: 800; font-size: 1.3rem; margin-top: .5rem; }
+    .about-right {
+      background: #fff; padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-right p { font-size: 1.05rem; font-weight: 700; line-height: 1.9; }
+    .about-right p + p { margin-top: .8rem; }
+
+    /* ========== SLIDE 3: 南九州市のこれからは？ ========== */
+    .issues-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .issue-card {
+      background: var(--card); border-radius: var(--r);
+      padding: 2rem 1.8rem; box-shadow: var(--sh);
+      border-top: 4px solid var(--g);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .issue-card:hover { transform: translateY(-4px); box-shadow: var(--shm); }
+    .issue-num { font-family: var(--f-disp); font-size: 2.5rem; color: var(--g); line-height: 1; margin-bottom: .6rem; }
+    .issue-card h3 { font-weight: 800; font-size: 1rem; margin-bottom: .5rem; }
+    .issue-card p { font-size: .88rem; color: var(--sub); line-height: 1.7; }
+
+    /* ========== SLIDE 4: 人口データ ========== */
+    .data-block {
+      background: var(--card); border-radius: var(--rl);
+      box-shadow: var(--sh); overflow: hidden;
+    }
+    .data-head {
+      background: var(--dark); color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .data-head .ico { font-size: 1.8rem; }
+    .data-head h3 { font-weight: 800; font-size: 1.1rem; }
+    .data-head small { display: block; font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 2px; }
+    .data-body { padding: 2rem; }
+    .data-body img { width: 100%; border-radius: 8px; }
+    .data-note {
+      margin-top: 1.2rem; padding: 1rem 1.2rem;
+      background: var(--gp); border-radius: 8px;
+      border-left: 4px solid var(--g);
+      font-size: .93rem; font-weight: 700;
+    }
+    .data-note strong { color: var(--gd); }
+    .data-cap { font-size: .78rem; color: var(--muted); margin-top: .8rem; text-align: right; }
+
+    /* ========== SLIDE 5: 供給・需要 ========== */
+    .balance-section { background: var(--dark) !important; color: #fff; }
+    .balance-title {
+      font-family: var(--f-body);
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      font-weight: 800; text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--g);
+    }
+    .balance-diagram {
+      max-width: 780px; margin: 0 auto;
+      position: relative;
+    }
+    .balance-svg-wrap {
+      width: 100%; padding-top: 62%;
+      position: relative;
+    }
+    .balance-svg-wrap svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+    .balance-labels {
+      display: flex; justify-content: space-between;
+      margin-top: .8rem;
+      font-size: .9rem; font-weight: 700; color: rgba(255,255,255,.5);
+    }
+
+    /* ========== SLIDE 6: 具体例 ========== */
+    .gap-intro {
+      font-size: 1.1rem; font-weight: 700; color: var(--sub);
+      margin-bottom: 2rem;
+    }
+    .gap-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    .gap-card {
+      background: var(--card); border-radius: var(--r);
+      padding: 1.8rem 2rem; box-shadow: var(--sh);
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .gap-supply {
+      background: var(--g); color: var(--dark);
+      font-weight: 800; font-size: .95rem;
+      padding: .5rem 1.2rem; border-radius: 6px; width: 100%; text-align: center;
+    }
+    .gap-arrow {
+      display: flex; flex-direction: column; align-items: center;
+      padding: .5rem 0; gap: 2px;
+      color: #C00000; font-size: .7rem; font-weight: 800;
+    }
+    .gap-arrow .arr { font-size: 1.4rem; line-height: 1; }
+    .gap-demand {
+      background: #FFF0F0; color: #C00000;
+      font-weight: 800; font-size: .95rem; border: 2px solid #C00000;
+      padding: .5rem 1.2rem; border-radius: 6px; width: 100%; text-align: center;
+    }
+    .gap-warning {
+      background: #C00000; color: #fff;
+      border-radius: var(--r); padding: 1.2rem 2rem;
+      text-align: center; margin-top: 2rem;
+      font-weight: 800; font-size: 1rem;
+      letter-spacing: .04em;
+    }
+
+    /* ========== SLIDE 7: 目指す方向 ========== */
+    .direction-headline {
+      background: var(--g); color: var(--dark);
+      border-radius: var(--r); padding: 1.5rem 2rem;
+      font-weight: 800; font-size: 1.15rem;
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: .8rem;
+    }
+    .direction-headline .deco { font-family: var(--f-disp); font-size: 1.8rem; opacity: .6; }
+    .dir-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .dir-item {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--card); border-radius: var(--r);
+      padding: 1.8rem 2rem; box-shadow: var(--sh);
+      border-left: 5px solid var(--g);
+    }
+    .dir-num {
+      font-family: var(--f-disp); font-size: 2.2rem; color: var(--g);
+      line-height: 1; flex-shrink: 0; width: 2.5rem;
+    }
+    .dir-text h3 { font-weight: 800; font-size: 1.05rem; margin-bottom: .4rem; }
+    .dir-text p { font-size: .9rem; color: var(--sub); line-height: 1.7; }
+
+    /* ========== SLIDE 8: 全体像 ========== */
+    .eco-center {
+      background: var(--dark); color: #fff;
+      border-radius: var(--rl); padding: 2.5rem;
+      text-align: center; margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .eco-center h3 { font-weight: 800; font-size: 1.25rem; }
+    .eco-center p { font-size: .9rem; color: rgba(255,255,255,.65); margin-top: .5rem; }
+    .eco-center::after {
+      content: '↕'; position: absolute; bottom: -1.8rem; left: 50%; transform: translateX(-50%);
+      font-size: 1.4rem; color: var(--g);
+    }
+    .eco-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 1.2rem; margin-top: 2.5rem;
+    }
+    .eco-card {
+      background: var(--card); border-radius: var(--r);
+      padding: 1.8rem 1rem; text-align: center;
+      box-shadow: var(--sh); border-bottom: 3px solid var(--g);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .eco-card:hover { transform: translateY(-4px); box-shadow: var(--shm); }
+    .eco-card .ico { width: 54px; height: 54px; margin: 0 auto 1rem; }
+    .eco-card .ico img { width: 100%; height: 100%; object-fit: contain; }
+    .eco-card h4 { font-weight: 800; font-size: .95rem; margin-bottom: .35rem; }
+    .eco-card p { font-size: .78rem; color: var(--sub); line-height: 1.5; }
+    .eco-goal {
+      background: var(--gp); border: 2px solid var(--g);
+      border-radius: var(--r); padding: 2rem 2.5rem;
+      margin-top: 2.5rem; text-align: center;
+    }
+    .eco-goal h3 { font-weight: 800; font-size: 1.1rem; color: var(--gd); }
+    .eco-goal p { font-size: .9rem; color: var(--sub); margin-top: .4rem; }
+
+    /* ========== SLIDE 9: 4つのプログラム ========== */
+    .prog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .prog-card {
+      background: var(--card); border-radius: var(--r);
+      padding: 2rem; box-shadow: var(--sh);
+      border-top: 4px solid var(--g);
+      transition: transform .2s, box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .prog-card:hover { transform: translateY(-4px); box-shadow: var(--shm); }
+    .prog-card.act { background: var(--dark); color: #fff; border-top: 4px solid var(--g); }
+    .prog-badge {
+      display: inline-block;
+      background: var(--g); color: var(--dark);
+      font-size: .7rem; font-weight: 800;
+      padding: 2px 10px; border-radius: 50px;
+      margin-bottom: .6rem; letter-spacing: .08em;
+    }
+    .prog-name { font-family: var(--f-disp); font-size: 2rem; color: var(--g); line-height: 1; margin-bottom: .6rem; }
+    .prog-card h3 { font-weight: 800; font-size: 1rem; margin-bottom: .5rem; }
+    .prog-card p { font-size: .88rem; color: var(--sub); line-height: 1.7; }
+    .prog-card.act p { color: rgba(255,255,255,.7); }
+    .prog-card.act h3 { color: #fff; }
+
+    /* ========== SLIDE 10: 4つのモデルプロジェクト ========== */
+    .model-note {
+      background: var(--gp); border: 1.5px solid var(--g);
+      border-radius: var(--r); padding: 1.2rem 1.8rem;
+      margin-bottom: 2rem; font-size: .9rem; color: var(--sub); line-height: 1.7;
+    }
+    .model-note ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; padding-top: .4rem; }
+    .model-note li::before { content: '・'; color: var(--g); font-weight: 800; }
+    .model-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .model-card {
+      background: var(--card); border-radius: var(--rl);
+      overflow: hidden; box-shadow: var(--sh);
+      display: flex;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .model-card:hover { transform: translateY(-4px); box-shadow: var(--shm); }
+    .model-stripe { width: 6px; background: var(--g); flex-shrink: 0; }
+    .model-body { padding: 2rem 2rem 2rem 1.5rem; }
+    .model-tag { font-family: var(--f-disp); font-size: 1.6rem; color: var(--g); line-height: 1; }
+    .model-body h3 { font-weight: 800; font-size: 1rem; margin: .5rem 0 .6rem; }
+    .model-body p { font-size: .88rem; color: var(--sub); line-height: 1.7; }
+
+    /* ========== SLIDE 11: 3年間の目標 ========== */
+    .kpi-wrap {
+      background: var(--dark); border-radius: var(--rl);
+      padding: 3.5rem; color: #fff;
+    }
+    .kpi-head { text-align: center; margin-bottom: 3rem; }
+    .kpi-head .en { font-family: var(--f-disp); font-size: 2rem; color: var(--g); letter-spacing: .08em; }
+    .kpi-head h2 { font-weight: 800; font-size: 1.4rem; margin-top: .4rem; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+    .kpi-item {
+      background: rgba(255,255,255,.06); border-radius: var(--r);
+      padding: 2rem 1.5rem; text-align: center;
+      border: 1px solid rgba(255,255,255,.1);
+      transition: background .2s;
+    }
+    .kpi-item:hover { background: rgba(255,255,255,.1); }
+    .kpi-ico { font-size: 2.2rem; margin-bottom: .6rem; }
+    .kpi-num { font-family: var(--f-disp); font-size: 2.8rem; color: var(--g); line-height: 1; margin-bottom: .3rem; }
+    .kpi-unit { font-size: 1rem; color: rgba(255,255,255,.5); margin-left: 2px; }
+    .kpi-label { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: .3rem; }
+    .kpi-note { text-align: center; font-size: .85rem; color: rgba(255,255,255,.4); }
+
+    /* ========== CTA ========== */
+    .cta { background: var(--g) !important; padding: 80px 5%; text-align: center; color: var(--dark); }
+    .cta h2 { font-family: var(--f-disp); font-size: clamp(1.8rem,4vw,2.8rem); letter-spacing: .06em; margin-bottom: .8rem; }
+    .cta p { font-size: 1rem; margin-bottom: 2rem; color: rgba(30,30,30,.75); }
+    .btn-cta {
+      display: inline-block; background: var(--dark); color: #fff !important;
+      font-weight: 800; font-size: 1.05rem;
+      padding: 1rem 2.5rem; border-radius: 50px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      text-decoration: none !important;
+    }
+    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.28); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.4);
+      text-align: center; padding: 2.5rem 5%; font-size: .8rem;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .about-wrap { grid-template-columns: 1fr; }
+      .about-left { padding: 2rem; }
+      .eco-grid { grid-template-columns: repeat(3, 1fr); }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .issues-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 660px) {
+      section { padding: 60px 4%; }
+      .model-grid, .prog-grid, .gap-grid { grid-template-columns: 1fr; }
+      .eco-grid { grid-template-columns: repeat(2, 1fr); }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .kpi-wrap { padding: 2rem 1.5rem; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <div class="nav-logo"><span>Be</span>プロジェクト</div>
+  <ul class="nav-links">
+    <li><a href="#about">プロジェクトとは</a></li>
+    <li><a href="#status">現状</a></li>
+    <li><a href="#direction">方向性</a></li>
+    <li><a href="#programs">プログラム</a></li>
+    <li><a href="index.html" class="btn-nav">Be ACT 募集中！</a></li>
+  </ul>
+</nav>
+
+<!-- ========== SLIDE 1: HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-be">be</div>
+    <div class="hero-title">Beプロジェクト</div>
+    <div class="hero-catch">
+      自分らしく生きやすいまちへ<br>
+      挑戦と応援の風土が広がる
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ========== SLIDE 2: ABOUT ========== -->
+<section id="about" style="background: var(--bg2);">
+  <div class="inner">
+    <div class="tag">What is Be Project?</div>
+    <h2 class="sec-title">Beプロジェクトとは？</h2>
+    <div class="about-wrap">
+      <div class="about-left">
+        <div class="en">Be</div>
+        <div class="ja">地域イノベーション<br>創出プロジェクト</div>
+      </div>
+      <div class="about-right">
+        <p>一人ひとりが暮らしやすいまちを目指して、</p>
+        <p>行政と市民が連携し、人材とプロジェクトを育て、</p>
+        <p>次世代に向けた地域変革を生み出すプロジェクトです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3: 南九州市のこれからは？ ========== -->
+<section id="status" style="background: var(--bg);">
+  <div class="inner">
+    <div class="tag">Current Status</div>
+    <h2 class="sec-title">南九州市のこれからは？</h2>
+    <p class="sec-lead">南九州市が直面している3つの現実。</p>
+    <div class="issues-grid">
+      <div class="issue-card">
+        <div class="issue-num">01</div>
+        <h3>人口は今後30年間で約半分に</h3>
+        <p>人口減少に伴い、色んなサービスが縮小・終了する恐れがある。</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">02</div>
+        <h3>社会状況の変化への対応が必須</h3>
+        <p>国際情勢・経済・AIなど、急速に変化する社会に対応できていない現状がある。</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-num">03</div>
+        <h3>市民一人ひとりの力がとても大事</h3>
+        <p>地域課題が山積するなか、みんなで取り組む共通の仕組みが求められている。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 4: 人口データ ========== -->
+<section id="population" style="background: var(--bg2);">
+  <div class="inner">
+    <div class="tag">Data</div>
+    <h2 class="sec-title">人口は今後30年間で約半分に</h2>
+    <p class="sec-lead">南九州市の人口は急速に減少しており、今後30年でほぼ半減する見込みです。</p>
+    <div class="data-block">
+      <div class="data-head">
+        <div class="ico">📉</div>
+        <div>
+          <h3>南九州市の人口推移（1975〜2050年）</h3>
+          <small>出典：南九州市人口ビジョン</small>
+        </div>
+      </div>
+      <div class="data-body">
+        <img src="web_assets_extracted/image2.png" alt="南九州市人口推移グラフ">
+        <div class="data-note">
+          2024年の人口：31,763人
+          <span style="margin: 0 .8rem; color: var(--muted);">→</span>
+          <strong>2050年には約 15,687人（約半分）の見込み</strong>
+        </div>
+        <p class="data-cap">出典：南九州市人口ビジョン（2024年実績 住民基本台帳）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 5: 供給・需要の逆転 ========== -->
+<section class="balance-section" id="balance">
+  <div class="inner">
+    <div class="tag" style="background: var(--g); color: var(--dark);">Supply &amp; Demand</div>
+    <p class="balance-title">今までバランスが取れていたのが逆転していく！</p>
+
+    <div class="balance-diagram">
+      <div class="balance-svg-wrap">
+        <svg viewBox="0 0 700 435" xmlns="http://www.w3.org/2000/svg">
+          <!-- background -->
+          <rect width="700" height="435" fill="#2a2a2a" rx="16"/>
+
+          <!-- axis lines -->
+          <line x1="60" y1="380" x2="660" y2="380" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+          <line x1="60" y1="40" x2="60" y2="385" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+
+          <!-- 供給ライン（左上→右下） -->
+          <defs>
+            <marker id="arr-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0,10 3.5,0 7" fill="#92D050"/>
+            </marker>
+            <marker id="arr-r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0,10 3.5,0 7" fill="#ff6666"/>
+            </marker>
+          </defs>
+          <line x1="90" y1="80" x2="620" y2="340"
+                stroke="#92D050" stroke-width="3.5" stroke-linecap="round"
+                marker-end="url(#arr-g)"/>
+          <!-- 需要ライン（左下→右上） -->
+          <line x1="90" y1="340" x2="620" y2="80"
+                stroke="#ff6666" stroke-width="3.5" stroke-linecap="round"
+                marker-end="url(#arr-r)"/>
+
+          <!-- 交差点マーカー「今」 -->
+          <circle cx="355" cy="210" r="22" fill="#1E1E1E" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+          <text x="355" y="216" text-anchor="middle" font-family="'M PLUS Rounded 1c', sans-serif" font-size="16" font-weight="800" fill="rgba(255,255,255,.85)">今</text>
+
+          <!-- ラベル：供給 -->
+          <rect x="68" y="56" width="200" height="30" rx="6" fill="rgba(146,208,80,.18)"/>
+          <text x="78" y="76" font-family="'M PLUS Rounded 1c', sans-serif" font-size="15" font-weight="700" fill="#92D050">持っているもの（供給）</text>
+
+          <!-- ラベル：需要 -->
+          <rect x="68" y="315" width="200" height="30" rx="6" fill="rgba(255,102,102,.15)"/>
+          <text x="78" y="335" font-family="'M PLUS Rounded 1c', sans-serif" font-size="15" font-weight="700" fill="#ff8888">必要なもの（需要）</text>
+
+          <!-- 供給の矢印説明 -->
+          <text x="590" y="362" text-anchor="end" font-family="'M PLUS Rounded 1c', sans-serif" font-size="13" fill="#92D050" opacity=".7">供給↓</text>
+          <!-- 需要の矢印説明 -->
+          <text x="590" y="72" text-anchor="end" font-family="'M PLUS Rounded 1c', sans-serif" font-size="13" fill="#ff8888" opacity=".7">需要↑</text>
+        </svg>
+      </div>
+      <div class="balance-labels">
+        <span>これまで</span>
+        <span>これから</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 6: 具体例 ========== -->
+<section id="examples" style="background: var(--bg);">
+  <div class="inner">
+    <div class="tag">Examples</div>
+    <h2 class="sec-title">例えば…</h2>
+    <p class="sec-lead">さまざまな分野で「需要」と「供給」の逆転が起きています。</p>
+
+    <div class="gap-grid">
+      <!-- 介護 -->
+      <div class="gap-card">
+        <div class="gap-supply">介護人材（減少）</div>
+        <div class="gap-arrow">
+          <span class="arr">↕</span>
+          <span>ギャップが拡大</span>
+        </div>
+        <div class="gap-demand">要介護者（増加）</div>
+      </div>
+      <!-- 公共施設 -->
+      <div class="gap-card">
+        <div class="gap-supply">財源・利用者（減少）</div>
+        <div class="gap-arrow">
+          <span class="arr">↕</span>
+          <span>ギャップが拡大</span>
+        </div>
+        <div class="gap-demand">公共施設の更新需要（増加）</div>
+      </div>
+      <!-- 交通 -->
+      <div class="gap-card">
+        <div class="gap-supply">公共交通（縮小）</div>
+        <div class="gap-arrow">
+          <span class="arr">↕</span>
+          <span>ギャップが拡大</span>
+        </div>
+        <div class="gap-demand">運転免許返納者（増加）</div>
+      </div>
+      <!-- 技術 -->
+      <div class="gap-card">
+        <div class="gap-supply">自然資源（減少・劣化）</div>
+        <div class="gap-arrow">
+          <span class="arr">↕</span>
+          <span>ギャップが拡大</span>
+        </div>
+        <div class="gap-demand">技術開発の必要性（増加）</div>
+      </div>
+    </div>
+
+    <div class="gap-warning">▶ 今のままだと持続できない！</div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 7: 目指す方向 ========== -->
+<section id="direction" style="background: var(--bg2);">
+  <div class="inner">
+    <div class="tag">Direction</div>
+    <h2 class="sec-title">目指す方向</h2>
+    <p class="sec-lead">自分たちの未来は自分たちでつくる。</p>
+
+    <div class="direction-headline">
+      <span class="deco">!</span>
+      行政の既定路線思考・市民の行政依存という慣習を打破する
+    </div>
+
+    <div class="dir-list">
+      <div class="dir-item">
+        <div class="dir-num">1</div>
+        <div class="dir-text">
+          <h3>現状と想定される未来を見つめ、選択肢を広げる</h3>
+          <p>現状と想定される未来をしっかり見つめて、あらゆる可能性を探る。</p>
+        </div>
+      </div>
+      <div class="dir-item">
+        <div class="dir-num">2</div>
+        <div class="dir-text">
+          <h3>地域全体で一歩を踏み出す</h3>
+          <p>市民も行政職員も地域全体で、理想の未来に向けた一歩を踏み出す。</p>
+        </div>
+      </div>
+      <div class="dir-item">
+        <div class="dir-num">3</div>
+        <div class="dir-text">
+          <h3>挑戦と応援の文化をつくる</h3>
+          <p>行政の既定路線思考・市民の行政依存という慣習を打破し、挑戦と応援の文化をつくる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 8: 全体像 ========== -->
+<section id="overview" style="background: var(--bg);">
+  <div class="inner">
+    <div class="tag">Ecosystem</div>
+    <h2 class="sec-title">プロジェクトの全体像</h2>
+    <p class="sec-lead">行政・市民・事業者・関係人口が連携し、地域変革のエコシステムをつくります。</p>
+
+    <div class="eco-center">
+      <h3>地域変革を起こすモデルプロジェクト</h3>
+      <p>アイデアを形にして挑戦する ／ スキルアップ・連携強化により地域課題を解決する</p>
+    </div>
+
+    <div class="eco-grid">
+      <div class="eco-card">
+        <div class="ico"><img src="web_assets_extracted/image7.svg" alt="市民"></div>
+        <h4>市民</h4>
+        <p>まちへの想いを形に</p>
+      </div>
+      <div class="eco-card">
+        <div class="ico"><img src="web_assets_extracted/image9.svg" alt="行政"></div>
+        <h4>行政</h4>
+        <p>応援・支援する風土としくみをつくる</p>
+      </div>
+      <div class="eco-card">
+        <div class="ico"><img src="web_assets_extracted/image13.svg" alt="事業者"></div>
+        <h4>地域事業者</h4>
+        <p>地域産業の担い手として</p>
+      </div>
+      <div class="eco-card">
+        <div class="ico"><img src="web_assets_extracted/image10.svg" alt="関係人口"></div>
+        <h4>関係人口</h4>
+        <p>まちに関わる人を増やす・深める</p>
+      </div>
+      <div class="eco-card">
+        <div class="ico"><img src="web_assets_extracted/image8.svg" alt="専門家"></div>
+        <h4>専門家</h4>
+        <p>知見と技術で変革を支援</p>
+      </div>
+    </div>
+
+    <div class="eco-goal">
+      <h3>🌱 理想の未来へ — 挑戦と応援が循環するまち</h3>
+      <p>官民の相乗作用によるイノベーションが連鎖するまちをつくる</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 9: 4つのプログラム ========== -->
+<section id="programs" style="background: var(--bg2);">
+  <div class="inner">
+    <div class="tag">Programs</div>
+    <h2 class="sec-title">4つのプログラム</h2>
+    <p class="sec-lead">
+      ターゲットごとにアプローチし、地域変革に向けた人材の発掘・育成、
+      関係人口の拡大と深化、応援・支援しあう環境づくりを進めます。
+    </p>
+
+    <div class="prog-grid">
+      <div class="prog-card act">
+        <div class="prog-badge">▶ 現在募集中</div>
+        <div class="prog-name">Be ACT</div>
+        <h3>市民が実践し、応援の文化を育む</h3>
+        <p>市民が理想の未来に向けて実践し、応援・協力の文化を育む実践者の養成。</p>
+      </div>
+      <div class="prog-card">
+        <div class="prog-name">Be LEAD</div>
+        <h3>課題解決とリーダー育成</h3>
+        <p>エビデンスに基づく本質的な課題解決と政策立案のための人材・プロジェクトの育成。</p>
+      </div>
+      <div class="prog-card">
+        <div class="prog-name">Be LINK</div>
+        <h3>域外からの担い手獲得</h3>
+        <p>地域や企業の担い手を地域外から獲得するためのプロモーション及びマッチング。</p>
+      </div>
+      <div class="prog-card">
+        <div class="prog-name">Be SHARE</div>
+        <h3>投資文化醸成と資金調達</h3>
+        <p>地域の変革が持続的に生まれるための投資文化醸成と資金調達プログラム。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 10: 4つのモデルプロジェクト ========== -->
+<section id="model-projects" style="background: var(--bg);">
+  <div class="inner">
+    <div class="tag">Model Projects</div>
+    <h2 class="sec-title">4つのモデルプロジェクト</h2>
+    <div class="model-note">
+      <ul>
+        <li>分野や所属を超える</li>
+        <li>ビジョンとKPIを共有しあう</li>
+        <li>トライ&amp;エラーで結果を出す</li>
+        <li>相乗効果により加速・波及する</li>
+      </ul>
+    </div>
+
+    <div class="model-grid">
+      <div class="model-card">
+        <div class="model-stripe"></div>
+        <div class="model-body">
+          <div class="model-tag">Be STAY !</div>
+          <h3>人が巡り、生業が活きる！</h3>
+          <p>滞在 × 仕事 × 交流で生まれる地域産業支援モデル。来た人が「住みたい」と思えるまちへ。</p>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-stripe"></div>
+        <div class="model-body">
+          <div class="model-tag">Be CARE !</div>
+          <h3>未来を支える、人を育てる！</h3>
+          <p>介護人材 × 教育 × 関係人口創出で、地域ケア構築モデルをつくる。</p>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-stripe"></div>
+        <div class="model-body">
+          <div class="model-tag">Be PROUD !</div>
+          <h3>歴史から未来をつくる</h3>
+          <p>「地域変革クリエイター」育成と文化観光エコシステムの構築。知覧の歴史をこれからの力に変える。</p>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-stripe"></div>
+        <div class="model-body">
+          <div class="model-tag">Be PLAY !</div>
+          <h3>まちを遊ぼう。未来をつくろう！</h3>
+          <p>市民の創造力 × 公共空間で、公園の価値創造モデルをつくる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 11: 3年間の目標 ========== -->
+<section id="goals" style="background: var(--bg2);">
+  <div class="inner">
+    <div class="tag">3-Year Goals</div>
+    <h2 class="sec-title">3年間の目標</h2>
+    <p class="sec-lead">2026〜2028年度にかけて、以下の目標達成を目指します。</p>
+
+    <div class="kpi-wrap">
+      <div class="kpi-head">
+        <div class="en">3 YEARS TARGET</div>
+        <h2>3年間で目指します</h2>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-ico">💼</div>
+          <div class="kpi-num">80<span class="kpi-unit">人</span></div>
+          <div class="kpi-label">新たな雇用の創出</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-ico">🙌</div>
+          <div class="kpi-num">450<span class="kpi-unit">人</span></div>
+          <div class="kpi-label">地域の実践者<br><span style="font-size:.75rem;opacity:.6;">（人口の1.5%相当）</span></div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-ico">🤝</div>
+          <div class="kpi-num">1500<span class="kpi-unit">人</span></div>
+          <div class="kpi-label">関係人口の拡大<br><span style="font-size:.75rem;opacity:.6;">（市外からの参画）</span></div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-ico">💡</div>
+          <div class="kpi-num">75<span class="kpi-unit">件</span></div>
+          <div class="kpi-label">民間投資の増加</div>
+        </div>
+      </div>
+      <p class="kpi-note">挑戦と応援が循環する地域イノベーションの創出を目指して。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta">
+  <div class="inner">
+    <h2>Be ACT！参加者募集中</h2>
+    <p>「まちのことを、自分ごとに。」<br>あなたの一歩が、南九州市を変える。</p>
+    <a href="index.html" class="btn-cta">募集ページを見る →</a>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>© 2026 一般社団法人アソビシロ / 南九州市 Beプロジェクト</p>
+  <p style="margin-top:.3rem;">お問い合わせ：llp.be.project.info@gmail.com</p>
+</footer>
+
+</body>
+</html>
