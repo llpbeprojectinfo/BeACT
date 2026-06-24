@@ -3,79 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beプロジェクトとは | 南九州市 地域イノベーション創出</title>
+  <title>Beプロジェクト | 南九州市 地域イノベーション創出</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background: #111;
+    /* ページ全体の背景はスライドのグレーに合わせる */
+    html, body {
+      background: #e5e5e5;
       font-family: 'M PLUS Rounded 1c', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
     }
 
+    /* ========== ナビ ==========
+       スライド上に浮かぶ形にして、スライドとの境界を消す */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(20,20,20,0.96);
-      backdrop-filter: blur(10px);
-      display: flex; align-items: center;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 52px;
+      background: rgba(30, 30, 30, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      padding: 0 5%; height: 52px;
+      padding: 0 5%;
     }
-    .nav-logo { color: #fff; font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
+    .nav-logo {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
     .nav-logo span { color: #92D050; }
     .nav-links { display: flex; gap: 1.4rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.6); font-size: .8rem; font-weight: 700; text-decoration: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.75);
+      font-size: .8rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
     .nav-links a:hover { color: #fff; }
-    .btn-nav { background: #92D050 !important; color: #111 !important; padding: 5px 14px; border-radius: 50px; font-weight: 800 !important; }
+    .btn-nav {
+      background: #92D050 !important;
+      color: #111 !important;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-weight: 800 !important;
+    }
 
+    /* ========== スライド群 ==========
+       gap:0・角丸なし・影なし でシームレスに連結 */
     .slides {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      /* ナビ(52px)の下から始めるオフセット */
+      padding-top: 0;
     }
+
     .slide {
       width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,.5);
+      line-height: 0; /* img下の隙間を消す */
     }
-    .slide img { width: 100%; height: auto; display: block; }
 
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* スライド間の微細な白スジを防ぐ */
+      vertical-align: bottom;
+    }
+
+    /* スライド1だけ、ナビ分だけ上にずらして全面表示 */
+    .slide:first-child {
+      margin-top: 0;
+    }
+
+    /* ========== CTA ==========
+       スライド11(#ebebeb)から自然につながるよう同系色で開始 */
     .cta {
       background: #92D050;
       text-align: center;
-      padding: 60px 5%;
+      padding: 64px 5% 72px;
     }
-    .cta h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #111; margin-bottom: .8rem; }
-    .cta p { font-size: 1rem; color: rgba(0,0,0,.65); margin-bottom: 2rem; }
+    .cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #111;
+      margin-bottom: .8rem;
+    }
+    .cta p {
+      font-size: 1rem;
+      color: rgba(0,0,0,.6);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
     .btn-cta {
-      display: inline-block; background: #111; color: #fff;
-      font-weight: 800; font-size: 1rem;
-      padding: .9rem 2.2rem; border-radius: 50px;
-      text-decoration: none; transition: opacity .2s;
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: .9rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity .2s;
     }
     .btn-cta:hover { opacity: .8; }
 
+    /* ========== フッター ========== */
     footer {
-      background: #111; color: rgba(255,255,255,.35);
-      text-align: center; padding: 2rem 5%; font-size: .78rem;
+      background: #1e1e1e;
+      color: rgba(255,255,255,.38);
+      text-align: center;
+      padding: 1.6rem 5%;
+      font-size: .78rem;
+      line-height: 1.6;
     }
 
+    /* ========== レスポンシブ ========== */
     @media (max-width: 600px) {
       nav .nav-links { display: none; }
-      .slides { padding: 20px 8px 40px; gap: 8px; }
-      .slide { border-radius: 4px; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo"><span>Be</span>プロジェクトとは</div>
+  <div class="nav-logo"><span>Be</span>プロジェクト</div>
   <ul class="nav-links">
     <li><a href="index.html" class="btn-nav">Be ACT 募集中！</a></li>
   </ul>
@@ -102,8 +158,7 @@
 </div>
 
 <footer>
-  <p>© 2026 一般社団法人アソビシロ / 南九州市 Beプロジェクト</p>
-  <p style="margin-top:.3rem;">お問い合わせ：llp.be.project.info@gmail.com</p>
+  <p>© 2026 Beプロジェクト</p>
 </footer>
 
 </body>
